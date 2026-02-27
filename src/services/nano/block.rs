@@ -127,7 +127,7 @@ async fn generate_work(
 ) -> Result<GenerateWorkResponseApi, ApiErrorResult> {
     let client = reqwest::Client::new();
     let threshold_hex = format!("{:016x}", threshold);
-    let work_server_url = std::env::var("NANO_WORK_SERVER_URL").unwrap_or_else(|_| "http://localhost:4000".to_string());
+    let work_server_url = std::env::var("NANO_WORK_SERVER_URL").unwrap_or_else(|_| "http://127.0.0.1:4000".to_string());
     let response_text = client.post(&work_server_url)
     .json(&serde_json::json!({
         "action": "work_generate",

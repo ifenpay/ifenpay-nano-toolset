@@ -13,7 +13,7 @@ where
     T: DeserializeOwned,
 {
     let client = reqwest::Client::new();
-    let api_url = env::var("IFENPAY_API_URL").unwrap_or_else(|_| "http://localhost:8000".to_string());
+    let api_url = env::var("IFENPAY_API_URL").unwrap_or_else(|_| "http://127.0.0.1:3000".to_string());
     let mut request = client.post(&format!("{}{}", api_url, uri)).json(payload);
     if let Some(key) = api_key {
         request = request.header("X-API-Key", key);
@@ -29,7 +29,7 @@ where
     T: DeserializeOwned,
 {
     let client = reqwest::Client::new();
-    let api_url = env::var("IFENPAY_API_URL").unwrap_or_else(|_| "http://localhost:8000".to_string());
+    let api_url = env::var("IFENPAY_API_URL").unwrap_or_else(|_| "http://127.0.0.1:3000".to_string());
     let mut request = client.get(&format!("{}{}", api_url, uri));
     if let Some(key) = api_key {
         request = request.header("X-API-Key", key);

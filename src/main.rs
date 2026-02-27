@@ -14,8 +14,6 @@ mod helpers;
 mod tests;
 mod enums;
 
-pub mod managers;
-
 #[tokio::main]
 async fn main() {
 	dotenv().ok();

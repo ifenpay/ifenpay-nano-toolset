@@ -1,5 +1,6 @@
 use std::fs;
 use std::path::Path;
+use dotenvy::dotenv;
 use rand::{rng};
 use rand::distr::{Distribution, Uniform};
 
@@ -38,7 +39,10 @@ pub async fn initialize_rust_app() {
 		} else {
 			println!("❌ .env-example not found, cannot create .env");
 		}
+
 	} 
+	dotenv().ok();
+
 
 	let wallets_dir = Path::new("data");
 	fs::create_dir_all(wallets_dir).expect("Failed to create wallets directory");

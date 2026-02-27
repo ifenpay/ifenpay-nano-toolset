@@ -2,7 +2,6 @@ use std::process::{Command, Stdio, Child};
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
-use dotenvy::dotenv;
 use tokio::spawn;
 
 use crate::services::{app::initialize::initialize_rust_app, mcp::initialize_mcp_stdio_server, routers::router::initialize_api_routers};
@@ -16,8 +15,6 @@ mod enums;
 
 #[tokio::main]
 async fn main() {
-	dotenv().ok();
-
     initialize_rust_app().await;
 
     spawn(initialize_api_routers());

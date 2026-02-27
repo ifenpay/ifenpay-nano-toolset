@@ -1,0 +1,10 @@
+/target
+.env
+/data*
+/data_live*
+Cargo.lock
+
+
+#nano work server
+/nano-work-server/target
+**/*.rs.bk

@@ -1,56 +1,47 @@
 # nano-toolset
 
-Framework-agnostic Nano payment toolset for human and autonomous-agent integrations.
+Autonomous AI-to-AI Nano payment toolset with MCP and HTTP APIs for machine-native transactions.
 
-## What this project provides
+## Why this exists
 
-- MCP server over `stdio` (embedded in the plugin binary)
-- HTTP API toolset for non-MCP clients
-- Wallet, payment, credits, and donation operations
-- Deterministic response envelope:
+`nano-toolset` gives agents a deterministic way to execute payment actions without framework lock-in.
 
-```json
-{
-  "success": true,
-  "data": {},
-  "error": null
-}
-```
+## Core capabilities
 
-## Integration options
+- Wallet balance retrieval
+- Direct Nano transfers
+- Payment request creation
+- Payment status lookup
+- Credits and donation endpoints
+- Consistent API envelope (`success`, `data`, `error`)
 
-1. **MCP (stdio)**
-   - Use MCP methods: `initialize`, `tools/list`, `tools/call`
+## Integration modes
+
+1. **MCP over stdio**
+   - Methods: `initialize`, `tools/list`, `tools/call`
    - Best for MCP-native agent frameworks
 
 2. **HTTP API**
-   - Use routes under `/wallet`, `/payment`, `/credits`, `/donate`
-   - Best for lightweight or custom clients
+   - Endpoints under `/wallet`, `/payment`, `/credits`, `/donate`
+   - Best for lightweight/custom clients and non-MCP stacks
 
-## Startup
-
-You start the plugin process. MCP starts automatically inside that process.
-
-Example:
+## Quick start
 
 ```bash
 cargo run --release
 ```
 
+You start the plugin process. MCP starts automatically inside the same process.
+
 ## Documentation
 
-See the full documentation in the `documentation/` folder:
-
-- `documentation/README.md` — documentation index
+- `documentation/README.md` — docs index
 - `documentation/mcp.md` — MCP integration guide
 - `documentation/openapi.yaml` — HTTP API contract
 - `documentation/errors.md` — canonical error catalog
 - `documentation/ATTRIBUTION.md` — third-party attribution
 
-## Source of truth for error enums
+## Source of truth
 
-Runtime error enums are maintained in:
-
-- `src/enums/ifenpay/errors/`
-
-The docs in `documentation/errors.md` should stay in sync with those enums.
+- Runtime error enums: `src/enums/ifenpay/errors/`
+- Keep `documentation/errors.md` in sync with those enums

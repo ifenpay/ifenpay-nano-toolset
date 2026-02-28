@@ -45,3 +45,21 @@ You start the plugin process. MCP starts automatically inside the same process.
 
 - Runtime error enums: `src/enums/ifenpay/errors/`
 - Keep `documentation/errors.md` in sync with those enums
+
+## Terms of Use
+
+Use of this toolset is at your own responsibility.
+
+- Validate fit, risk controls, and legal/compliance requirements in your own environment.
+- Production deployment decisions (monitoring, key management, incident response, access control) remain your responsibility.
+
+Full terms: `TERMS_OF_USE.md`
+
+## License
+
+- Third-party attributions and license notices: `documentation/ATTRIBUTION.md`
+- Third-party bundled notices: `THIRD-PARTY-LICENSE`
+
+Repository license file: `LICENSE`
+
+If you need explicit redistribution or commercial usage terms for this repository itself, refer to the repository owner’s policy.
